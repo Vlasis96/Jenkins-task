@@ -8,9 +8,9 @@ environment {
     PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
 }
     stages {
-        stage("build") {
+        stage("build"){
             steps {
-                echo "------------- build started --------------"
+                 echo "------------- build started --------------"
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
                 echo "------------- build completed --------------"
             }
@@ -25,7 +25,7 @@ environment {
 
      stage('SonarQube analysis') {
      environment {
-             scannerHome = tool 'vlasis-sonar-scanner'
+       scannerHome = tool 'vlasis-sonar-scanner'
      }
      steps{
      withSonarQubeEnv('vlasis-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
